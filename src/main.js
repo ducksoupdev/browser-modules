@@ -1,5 +1,5 @@
 import Shape from './lib/Shape.js'
-import {PURPLE, PINK} from './lib/colors.js'
+import { PURPLE, PINK } from './lib/colors.js'
 
 window._moduleLoaded = true
 

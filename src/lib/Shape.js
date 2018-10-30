@@ -1,4 +1,4 @@
-import {Color, Vector2} from './math.js'
+import { Color, Vector2 } from './math.js'
 
 export default class Shape {
   constructor () {

@@ -15,15 +15,7 @@ export default [
     plugins: [
       resolve(), // so Rollup can find `ms`
       commonjs(), // so Rollup can convert `ms` to an ES module
-      babel({
-        babelrc: false,
-        presets: [
-          ['env', { modules: false }]
-        ],
-        plugins: [
-          'external-helpers'
-        ]
-      })
+      babel()
     ]
   },
 
