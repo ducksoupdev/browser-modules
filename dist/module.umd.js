@@ -2,112 +2,58 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (factory());
-}(this, (function () { 'use strict';
-
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-
-  var Color =
-  /*#__PURE__*/
-  function () {
-    function Color() {
-      var r = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-      var g = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      var b = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-
-      _classCallCheck(this, Color);
+}(this, (function () {
+  var Color = function Color(r, g, b) {
+      if ( r === void 0 ) r = 0;
+      if ( g === void 0 ) g = 0;
+      if ( b === void 0 ) b = 0;
 
       this.set(r, g, b);
-    }
-
-    _createClass(Color, [{
-      key: "copy",
-      value: function copy(color) {
-        this.set(color.r, color.g, color.b);
-      }
-    }, {
-      key: "set",
-      value: function set(r, g, b) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
-      }
-    }, {
-      key: "toHex",
-      value: function toHex() {
-        var hex = this.r * 255 << 16 ^ this.g * 255 << 8 ^ this.b * 255 << 0;
-        return '#' + ('000000' + hex.toString(16)).slice(-6);
-      }
-    }]);
-
-    return Color;
-  }();
-  var Vector2 =
-  /*#__PURE__*/
-  function () {
-    function Vector2() {
-      var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-      var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-
-      _classCallCheck(this, Vector2);
+  };
+  Color.prototype.copy = function copy (color) {
+      this.set(color.r, color.g, color.b);
+  };
+  Color.prototype.set = function set (r, g, b) {
+      this.r = r;
+      this.g = g;
+      this.b = b;
+  };
+  Color.prototype.toHex = function toHex () {
+      var hex = this.r * 255 << 16 ^ this.g * 255 << 8 ^ this.b * 255 << 0;
+      return '#' + ('000000' + hex.toString(16)).slice(-6);
+  };
+  var Vector2 = function Vector2(x, y) {
+      if ( x === void 0 ) x = 0;
+      if ( y === void 0 ) y = 0;
 
       this.set(x, y);
-    }
+  };
+  Vector2.prototype.set = function set (x, y) {
+      this.x = x;
+      this.y = y;
+  };
 
-    _createClass(Vector2, [{
-      key: "set",
-      value: function set(x, y) {
-        this.x = x;
-        this.y = y;
-      }
-    }]);
 
-    return Vector2;
-  }();
+  //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hdGguanMob3JpZ2luYWwpIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sTUFBTSxNQUFNO0lBQ2pCLFlBQWEsQ0FBQSxHQUFJLENBQUcsRUFBQSxDQUFBLEdBQUksQ0FBRyxFQUFBLENBQUEsR0FBSSxHQUFHO1FBQ2hDLElBQUEsQ0FBSyxHQUFMLENBQVMsR0FBRyxHQUFHO0lBQ25CO0lBRUUsS0FBTSxPQUFPO1FBQ1gsSUFBQSxDQUFLLEdBQUwsQ0FBUyxLQUFBLENBQU0sR0FBRyxLQUFBLENBQU0sR0FBRyxLQUFBLENBQU07SUFDckM7SUFFRSxJQUFLLENBQUcsRUFBQSxDQUFHLEVBQUEsR0FBRztRQUNaLElBQUEsQ0FBSyxDQUFMLENBQUEsQ0FBQSxDQUFTO1FBQ1QsSUFBQSxDQUFLLENBQUwsQ0FBQSxDQUFBLENBQVM7UUFDVCxJQUFBLENBQUssQ0FBTCxDQUFBLENBQUEsQ0FBUztJQUNiO0lBRUUsUUFBUztRQUNQLEtBQUEsQ0FBTSxNQUFPLElBQUEsQ0FBSyxDQUFMLENBQUEsQ0FBQSxDQUFTLEdBQVYsQ0FBQSxFQUFBLENBQWtCLEVBQWxCLENBQUEsQ0FBQSxDQUF3QixJQUFBLENBQUssQ0FBTCxDQUFBLENBQUEsQ0FBUyxHQUFWLENBQUEsRUFBQSxDQUFrQixDQUF6QyxDQUFBLENBQUEsQ0FBOEMsSUFBQSxDQUFLLENBQUwsQ0FBQSxDQUFBLENBQVMsR0FBVixDQUFBLEVBQUEsQ0FBa0I7UUFDM0UsT0FBTyxHQUFBLENBQUEsQ0FBQSxFQUFPLFFBQUEsQ0FBQSxDQUFBLENBQVcsR0FBQSxDQUFJLFFBQUosQ0FBYSxJQUF6QixDQUE4QixLQUE5QixDQUFvQyxDQUFDO0lBQ3REO0FBQ0E7QUFFQSxPQUFPLE1BQU0sUUFBUTtJQUNuQixZQUFhLENBQUEsR0FBSSxDQUFHLEVBQUEsQ0FBQSxHQUFJLEdBQUc7UUFDekIsSUFBQSxDQUFLLEdBQUwsQ0FBUyxHQUFHO0lBQ2hCO0lBRUUsSUFBSyxDQUFHLEVBQUEsR0FBRztRQUNULElBQUEsQ0FBSyxDQUFMLENBQUEsQ0FBQSxDQUFTO1FBQ1QsSUFBQSxDQUFLLENBQUwsQ0FBQSxDQUFBLENBQVM7SUFDYjtBQUNBO0FBOUJBIiwiZmlsZSI6Im1hdGguanMob3JpZ2luYWwpIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNsYXNzIENvbG9yIHtcbiAgY29uc3RydWN0b3IgKHIgPSAwLCBnID0gMCwgYiA9IDApIHtcbiAgICB0aGlzLnNldChyLCBnLCBiKVxuICB9XG5cbiAgY29weSAoY29sb3IpIHtcbiAgICB0aGlzLnNldChjb2xvci5yLCBjb2xvci5nLCBjb2xvci5iKVxuICB9XG5cbiAgc2V0IChyLCBnLCBiKSB7XG4gICAgdGhpcy5yID0gclxuICAgIHRoaXMuZyA9IGdcbiAgICB0aGlzLmIgPSBiXG4gIH1cblxuICB0b0hleCAoKSB7XG4gICAgY29uc3QgaGV4ID0gKHRoaXMuciAqIDI1NSkgPDwgMTYgXiAodGhpcy5nICogMjU1KSA8PCA4IF4gKHRoaXMuYiAqIDI1NSkgPDwgMFxuICAgIHJldHVybiAnIycgKyAoJzAwMDAwMCcgKyBoZXgudG9TdHJpbmcoMTYpKS5zbGljZSgtNilcbiAgfVxufVxuXG5leHBvcnQgY2xhc3MgVmVjdG9yMiB7XG4gIGNvbnN0cnVjdG9yICh4ID0gMCwgeSA9IDApIHtcbiAgICB0aGlzLnNldCh4LCB5KVxuICB9XG5cbiAgc2V0ICh4LCB5KSB7XG4gICAgdGhpcy54ID0geFxuICAgIHRoaXMueSA9IHlcbiAgfVxufVxuIl19
 
-  var Shape =
-  /*#__PURE__*/
-  function () {
-    function Shape() {
-      _classCallCheck(this, Shape);
-
+  var Shape = function Shape() {
       this.color = new Color();
       this.position = new Vector2();
       this.size = new Vector2(10, 10);
-    }
+  };
+  Shape.prototype.draw = function draw (context) {
+      context.fillStyle = this.color.toHex();
+      context.fillRect(this.position.x, this.position.y, this.size.x, this.size.y);
+  };
 
-    _createClass(Shape, [{
-      key: "draw",
-      value: function draw(context) {
-        context.fillStyle = this.color.toHex();
-        context.fillRect(this.position.x, this.position.y, this.size.x, this.size.y);
-      }
-    }]);
 
-    return Shape;
-  }();
+  //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNoYXBlLmpzKG9yaWdpbmFsKSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxRQUFTLE9BQU8sY0FBZTtBQUUvQixlQUFlLE1BQU0sTUFBTTtJQUN6QixjQUFlO1FBQ2IsSUFBQSxDQUFLLEtBQUwsQ0FBQSxDQUFBLENBQWEsSUFBSSxLQUFKO1FBQ2IsSUFBQSxDQUFLLFFBQUwsQ0FBQSxDQUFBLENBQWdCLElBQUksT0FBSjtRQUNoQixJQUFBLENBQUssSUFBTCxDQUFBLENBQUEsQ0FBWSxJQUFJLE9BQUosQ0FBWSxJQUFJO0lBQ2hDO0lBRUUsS0FBTSxTQUFTO1FBQ2IsT0FBQSxDQUFRLFNBQVIsQ0FBQSxDQUFBLENBQW9CLElBQUEsQ0FBSyxLQUFMLENBQVcsS0FBWDtRQUVwQixPQUFBLENBQVEsUUFBUixDQUFpQixJQUFBLENBQUssUUFBTCxDQUFjLEdBQUcsSUFBQSxDQUFLLFFBQUwsQ0FBYyxHQUM5QyxJQUFBLENBQUssSUFBTCxDQUFVLEdBQUcsSUFBQSxDQUFLLElBQUwsQ0FBVTtJQUM3QjtBQUNBO0FBZkEiLCJmaWxlIjoiU2hhcGUuanMob3JpZ2luYWwpIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29sb3IsIFZlY3RvcjIgfSBmcm9tICcuL21hdGguanMnXG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIFNoYXBlIHtcbiAgY29uc3RydWN0b3IgKCkge1xuICAgIHRoaXMuY29sb3IgPSBuZXcgQ29sb3IoKVxuICAgIHRoaXMucG9zaXRpb24gPSBuZXcgVmVjdG9yMigpXG4gICAgdGhpcy5zaXplID0gbmV3IFZlY3RvcjIoMTAsIDEwKVxuICB9XG5cbiAgZHJhdyAoY29udGV4dCkge1xuICAgIGNvbnRleHQuZmlsbFN0eWxlID0gdGhpcy5jb2xvci50b0hleCgpXG5cbiAgICBjb250ZXh0LmZpbGxSZWN0KHRoaXMucG9zaXRpb24ueCwgdGhpcy5wb3NpdGlvbi55LFxuICAgICAgdGhpcy5zaXplLngsIHRoaXMuc2l6ZS55KVxuICB9XG59XG4iXX0=
 
   var PURPLE = new Color(103 / 255, 58 / 255, 183 / 255);
   var PINK = new Color(228 / 255, 41 / 255, 144 / 255);
+
+
+  //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbG9ycy5qcyhvcmlnaW5hbCkiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsUUFBUyxZQUFhO0FBRXRCLE9BQU8sS0FBQSxDQUFNLFNBQVMsSUFBSSxLQUFKLENBQVUsR0FBQSxDQUFBLENBQUEsQ0FBTSxLQUFLLEVBQUEsQ0FBQSxDQUFBLENBQUssS0FBSyxHQUFBLENBQUEsQ0FBQSxDQUFNO0FBQzNELE9BQU8sS0FBQSxDQUFNLE9BQU8sSUFBSSxLQUFKLENBQVUsR0FBQSxDQUFBLENBQUEsQ0FBTSxLQUFLLEVBQUEsQ0FBQSxDQUFBLENBQUssS0FBSyxHQUFBLENBQUEsQ0FBQSxDQUFNO0FBSHpEIiwiZmlsZSI6ImNvbG9ycy5qcyhvcmlnaW5hbCkiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb2xvciB9IGZyb20gJy4vbWF0aC5qcydcblxuZXhwb3J0IGNvbnN0IFBVUlBMRSA9IG5ldyBDb2xvcigxMDMgLyAyNTUsIDU4IC8gMjU1LCAxODMgLyAyNTUpXG5leHBvcnQgY29uc3QgUElOSyA9IG5ldyBDb2xvcigyMjggLyAyNTUsIDQxIC8gMjU1LCAxNDQgLyAyNTUpXG4iXX0=
 
   window._moduleLoaded = true;
   var canvas = document.getElementById('screen');
@@ -124,7 +70,11 @@
   square.position.set(200, 100);
   shapes.push(square);
   shapes.forEach(function (shape) {
-    shape.draw(context);
+      shape.draw(context);
   });
 
+
+  //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4uanMob3JpZ2luYWwpIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sV0FBVztBQUNsQixRQUFTLFFBQVEsV0FBWTtBQUU3QixNQUFBLENBQU8sYUFBUCxDQUFBLENBQUEsQ0FBdUI7QUFFdkIsS0FBQSxDQUFNLFNBQVMsUUFBQSxDQUFTLGNBQVQsQ0FBd0I7QUFDdkMsS0FBQSxDQUFNLFVBQVUsTUFBQSxDQUFPLFVBQVAsQ0FBa0I7QUFFbEMsS0FBQSxDQUFNLFNBQVM7QUFFZixLQUFBLENBQU0sT0FBTyxJQUFJLEtBQUo7QUFDYixJQUFBLENBQUssS0FBTCxDQUFXLElBQVgsQ0FBZ0I7QUFDaEIsSUFBQSxDQUFLLElBQUwsQ0FBVSxHQUFWLENBQWMsS0FBSztBQUNuQixJQUFBLENBQUssUUFBTCxDQUFjLEdBQWQsQ0FBa0IsSUFBSTtBQUN0QixNQUFBLENBQU8sSUFBUCxDQUFZO0FBRVosS0FBQSxDQUFNLFNBQVMsSUFBSSxLQUFKO0FBQ2YsTUFBQSxDQUFPLEtBQVAsQ0FBYSxJQUFiLENBQWtCO0FBQ2xCLE1BQUEsQ0FBTyxJQUFQLENBQVksR0FBWixDQUFnQixLQUFLO0FBQ3JCLE1BQUEsQ0FBTyxRQUFQLENBQWdCLEdBQWhCLENBQW9CLEtBQUs7QUFDekIsTUFBQSxDQUFPLElBQVAsQ0FBWTtBQUVaLE1BQUEsQ0FBTyxPQUFQLENBQWUsS0FBQSxJQUFTO0lBQ3RCLEtBQUEsQ0FBTSxJQUFOLENBQVc7QUFDYjtBQXhCQSIsImZpbGUiOiJtYWluLmpzKG9yaWdpbmFsKSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBTaGFwZSBmcm9tICcuL2xpYi9TaGFwZS5qcydcbmltcG9ydCB7IFBVUlBMRSwgUElOSyB9IGZyb20gJy4vbGliL2NvbG9ycy5qcydcblxud2luZG93Ll9tb2R1bGVMb2FkZWQgPSB0cnVlXG5cbmNvbnN0IGNhbnZhcyA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzY3JlZW4nKVxuY29uc3QgY29udGV4dCA9IGNhbnZhcy5nZXRDb250ZXh0KCcyZCcpXG5cbmNvbnN0IHNoYXBlcyA9IFtdXG5cbmNvbnN0IHJlY3QgPSBuZXcgU2hhcGUoKVxucmVjdC5jb2xvci5jb3B5KFBVUlBMRSlcbnJlY3Quc2l6ZS5zZXQoMjAwLCA2MClcbnJlY3QucG9zaXRpb24uc2V0KDIwLCAxMClcbnNoYXBlcy5wdXNoKHJlY3QpXG5cbmNvbnN0IHNxdWFyZSA9IG5ldyBTaGFwZSgpXG5zcXVhcmUuY29sb3IuY29weShQSU5LKVxuc3F1YXJlLnNpemUuc2V0KDEyMCwgMTIwKVxuc3F1YXJlLnBvc2l0aW9uLnNldCgyMDAsIDEwMClcbnNoYXBlcy5wdXNoKHNxdWFyZSlcblxuc2hhcGVzLmZvckVhY2goc2hhcGUgPT4ge1xuICBzaGFwZS5kcmF3KGNvbnRleHQpXG59KVxuIl19
+
 })));
+//# sourceMappingURL=module.umd.js.map
