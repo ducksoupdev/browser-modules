@@ -7,6 +7,7 @@
   "browser": "dist/module.umd.js",
   "scripts": {
     "build": "rollup -c",
+    "prebuild": "babel src/lib --out-dir dist/lib",
     "dev": "rollup -c -w",
     "test": "node test/test.js",
     "pretest": "yarn build",
@@ -15,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
