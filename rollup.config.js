@@ -17,9 +17,7 @@ export default [
       commonjs(), // so Rollup can convert `ms` to an ES module
       babel({
         babelrc: false,
-        presets: [
-          ['@babel/preset-env', { modules: false }]
-        ]
+        presets: ['@babel/preset-env']
       })
     ]
   },
